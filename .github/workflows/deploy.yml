@@ -1,0 +1,96 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - run: npm run build
+        env:
+          NODE_ENV: production
+
+      - name: Generate static index.html for GitHub Pages
+        run: |
+          cd dist/client
+
+          # Extract asset filenames from the build output
+          CSS_FILE=$(find assets -name "styles-*.css" -type f | head -1)
+          # The larger JS file is the framework, the smaller is the app entry
+          APP_JS=$(find assets -name "index-*.js" -type f -printf '%s %p\n' | sort -n | tail -1 | awk '{print $2}')
+          VENDOR_JS=$(find assets -name "index-*.js" -type f -printf '%s %p\n' | sort -n | head -1 | awk '{print $2}')
+
+          echo "CSS: $CSS_FILE"
+          echo "APP_JS: $APP_JS"
+          echo "VENDOR_JS: $VENDOR_JS"
+
+          # Create index.html that bootstraps the React SPA
+          cat > index.html << 'HTMLEOF'
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cherre Alpha — The Governed Data Layer for Enterprise AI</title>
+<meta name="description" content="Cherre Alpha connects, resolves, and governs your data so AI agents can reason with trust, traceability, and context.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+HTMLEOF
+
+          echo "<link rel=\"stylesheet\" href=\"/$CSS_FILE\">" >> index.html
+
+          cat >> index.html << 'HTMLEOF'
+<style>
+  body { background: #0d0117; color: #fff; margin: 0; }
+  #root { min-height: 100vh; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+HTMLEOF
+
+          echo "<script type=\"module\" src=\"/$APP_JS\"></script>" >> index.html
+          echo "</body></html>" >> index.html
+
+          # Prevent Jekyll from processing
+          touch .nojekyll
+
+          # Copy 404 fallback for SPA routing
+          cp index.html 404.html
+
+          echo "Generated index.html:"
+          head -20 index.html
+
+      - uses: actions/configure-pages@v4
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist/client
+
+      - id: deployment
+        uses: actions/deploy-pages@v4
