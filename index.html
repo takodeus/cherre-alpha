@@ -54,41 +54,10 @@
   --toggle-bg: #241f32;
 }
 
-/* Light mode overrides (unused in Luna but kept for JS compat) */
-[data-theme="light"] {
-  --bg:     var(--light-bg);
-  --bg-1:   #FFFFFF;
-  --bg-2:   #F0EBF8;
-  --bg-3:   #E8E2F4;
-  --border: rgba(0,0,0,0.08);
-  --t1:     #130D20;
-  --t2:     rgba(19,13,32,0.58);
-  --t3:     rgba(19,13,32,0.33);
-  --nav-bg: #FFFFFF;
-  --toggle-bg: #E8E2F4;
-  --mg-bg:  rgba(224,64,160,0.05);
-  --mg-border: rgba(224,64,160,0.18);
-  --mg-pale: #FDE8F2;
-}
+
 
 /* Force dark theme always */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg:     var(--bg-void);
-    --bg-1:   var(--bg-deep);
-    --bg-2:   #1c1428;
-    --bg-3:   #241f32;
-    --border: rgba(255,255,255,0.07);
-    --t1:     #EDE9F5;
-    --t2:     rgba(237,233,245,0.55);
-    --t3:     rgba(237,233,245,0.28);
-    --nav-bg: rgba(13,1,23,0.92);
-    --toggle-bg: #241f32;
-    --mg-bg:  rgba(224,64,160,0.08);
-    --mg-border: rgba(224,64,160,0.22);
-    --mg-pale: rgba(224,64,160,0.15);
-  }
-}
+
 
 *,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior:smooth; }
@@ -996,7 +965,7 @@ document.querySelectorAll('.ac-trigger').forEach(function(btn) {
 
 /* ══ DARK / LIGHT TOGGLE ══
    Placed in the nav between the badge and the CTA button.
-   Persists to localStorage as 'ca-micro-theme'. */
+   Persists to localStorage as 'cherre-alpha-theme'. */
 var html = document.documentElement;
 var toggleEl = document.getElementById('themeToggle');
 var lblEl    = document.getElementById('toggleLbl');
@@ -1004,16 +973,16 @@ var lblEl    = document.getElementById('toggleLbl');
 function setTheme(t) {
   html.setAttribute('data-theme', t);
   lblEl.textContent = t === 'dark' ? 'DARK' : 'LIGHT';
-  try { localStorage.setItem('ca-micro-theme', t); } catch(e) {}
+  try { localStorage.setItem('cherre-alpha-theme', t); } catch(e) {}
 }
 
 toggleEl.addEventListener('click', function() {
-  setTheme(html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+  setTheme('dark');
 });
 toggleEl.addEventListener('keydown', function(e) {
   if (e.key === 'Enter' || e.key === ' ') {
     e.preventDefault();
-    setTheme(html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    setTheme('dark');
   }
 });
 
@@ -1027,11 +996,10 @@ toggleEl.addEventListener('keydown', function(e) {
     var isMobile = window.matchMedia('(max-width:800px)').matches;
     if (isMobile) {
       var prefersDark = window.matchMedia('(prefers-color-scheme:dark)').matches;
-      setTheme(prefersDark ? 'dark' : 'light');
+      setTheme('dark');
     } else {
-      var saved = localStorage.getItem('ca-micro-theme');
-      if (saved === 'dark' || saved === 'light') setTheme(saved);
-      else setTheme('dark');
+      var saved = localStorage.getItem('cherre-alpha-theme');
+      setTheme('dark');
     }
   } catch(e) { setTheme('dark'); }
 
@@ -1039,7 +1007,7 @@ toggleEl.addEventListener('keydown', function(e) {
   try {
     window.matchMedia('(prefers-color-scheme:dark)').addEventListener('change', function(e) {
       if (window.matchMedia('(max-width:800px)').matches) {
-        setTheme(e.matches ? 'dark' : 'light');
+        setTheme('dark');
       }
     });
   } catch(e) {}
