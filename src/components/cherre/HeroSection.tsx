@@ -1,9 +1,9 @@
-import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { PERSONA_TILES, LENS_DATA, STATS, type LensKey } from "@/lib/cherre-data";
+import { PERSONA_TILES, LENS_DATA, STATS } from "@/lib/cherre-data";
+import { useLens } from "./LensProvider";
 
 export function HeroSection() {
-  const [activeLens, setActiveLens] = useState<LensKey>("investment");
+  const { activeLens, setActiveLens } = useLens();
   const lens = LENS_DATA[activeLens];
 
   return (

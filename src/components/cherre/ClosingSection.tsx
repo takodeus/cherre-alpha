@@ -1,9 +1,9 @@
-import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { LENS_DATA, type LensKey } from "@/lib/cherre-data";
+import { LENS_DATA } from "@/lib/cherre-data";
+import { useLens } from "./LensProvider";
 
 export function ClosingSection() {
-  const [activeLens] = useState<LensKey>("investment");
+  const { activeLens } = useLens();
   const lens = LENS_DATA[activeLens];
 
   return (
