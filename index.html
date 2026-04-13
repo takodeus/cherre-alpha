@@ -128,7 +128,7 @@ nav {
 
 /* Theme toggle */
 .theme-toggle {
-  display:flex; align-items:center; gap:9px; cursor:pointer;
+  display:none; /* Luna design: dark only */
 }
 .toggle-track {
   width:38px; height:21px; background:var(--toggle-bg);
@@ -1033,7 +1033,7 @@ toggleEl.addEventListener('keydown', function(e) {
       if (saved === 'dark' || saved === 'light') setTheme(saved);
       else setTheme('dark');
     }
-  } catch(e) { setTheme('light'); }
+  } catch(e) { setTheme('dark'); }
 
   /* Track system theme changes on mobile in real time */
   try {
