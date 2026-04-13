@@ -3,38 +3,46 @@ export interface LensData {
   pdflabel: string;
   dlname: string;
   h1: string;
+  h1Em: string;
   sub: string;
   ch2: string;
+  ch2Em: string;
   cs: string;
 }
 
 export const LENS_DATA: Record<string, LensData> = {
   investment: {
     pdf: "slick-investment.pdf",
-    pdflabel: "INVESTMENT EDITION, FOR CIOS & DEAL TEAMS",
+    pdflabel: "Investment Readiness Brief — For CIOs & Deal Teams",
     dlname: "Cherre AI Activation Investment.pdf",
-    h1: "The Data Layer Behind Better Investment Judgment.",
-    sub: "Cherre connects, resolves, and governs investment data so your team can work from a more complete picture, with the trust, traceability, and context required for real decisions.",
-    ch2: "The Next Edge Will Come from Context, Not Just Capital.",
-    cs: "The firms that win the next cycle will not simply have more capital, they will have better data.",
+    h1: "Trusted Data for Faster, Better",
+    h1Em: "Investment Judgment.",
+    sub: "Cherre turns fragmented investment data into governed, traceable context your teams and agents act on with confidence. Entity resolution, provenance, and as-of dating close the gap between what your systems store and what your committee needs.",
+    ch2: "The Next Edge Will Come from",
+    ch2Em: "Governed Context, Not Just More Capital.",
+    cs: "The firms that win will reason on better data, not simply hold more of it. In the reasoning era, data quality is investment infrastructure.",
   },
   cdo: {
     pdf: "slick-cdo.pdf",
-    pdflabel: "CDO / CTO EDITION, FOR DATA & TECHNOLOGY LEADERS",
+    pdflabel: "Technology Readiness Brief — For Data & Technology Leaders",
     dlname: "Cherre AI Activation Technology.pdf",
-    h1: "The Gap Between Audit-Ready and Agent-Ready Is Where Your AI Stalls.",
-    sub: "Your organization has invested in AI. The models are capable and the use cases are real. What often stands between experimentation and production is data that passes audit but is not yet agent-ready, not entity-resolved, not provenance-aware, and not governed at the meaning layer.",
-    ch2: "Your Data Sets the Ceiling for AI Outcomes. The Readiness Assessment Shows How to Raise It.",
-    cs: "Every AI initiative in your roadmap runs against a data ceiling your current stack has already set.",
+    h1: "Audit-Ready Is Not Agent-Ready. The Gap Is Where",
+    h1Em: "AI Stalls.",
+    sub: "Most AI programs do not stall on model access. They stall on meaning, resolution, and trust. Cherre closes the gap between data that passes audit and data that supports reasoning: entity-resolved, provenance-aware, and governed at the semantic layer.",
+    ch2: "Your Data Layer Sets the Ceiling on AI Outcomes.",
+    ch2Em: "To Raise the AI Ceiling, Raise the Meaning Layer.",
+    cs: "Every AI initiative in your roadmap runs against the meaning layer your current architecture provides. The assessment shows where that ceiling is.",
   },
   operations: {
     pdf: "slick-operations.pdf",
-    pdflabel: "OPERATIONS EDITION, FOR COOS & FUND ADMINISTRATORS",
+    pdflabel: "Operations Readiness Brief — For COOs & Fund Administrators",
     dlname: "Cherre AI Activation Operations.pdf",
-    h1: "Operational AI Starts When Your Data Stops Needing Manual Rescue.",
-    sub: "Your operations team is doing work the data layer should already have resolved: reconciling, assembling, validating, and checking AI outputs before action. Cherre helps move that burden back where it belongs, into data that is connected, governed, and trusted.",
-    ch2: "What Changes When Operations No Longer Has to Reconcile for the Machine?",
-    cs: "Every manual process your team runs is a gap your data layer never closed.",
+    h1: "Your Team Should Not Have to Reconcile What the Data Layer",
+    h1Em: "Should Have Resolved.",
+    sub: "When operations is still validating, assembling, and reconciling for the machine, AI has not reached production. Cherre moves that burden into the data layer: connected, entity-resolved, governed, and trusted before the agent ever asks.",
+    ch2: "What Changes When the Data Layer Finally Does the Work",
+    ch2Em: "Operations Has Been Doing?",
+    cs: "The goal is not more AI reviewing the workflow. It is less manual work surviving the data layer.",
   },
 };
 
@@ -45,36 +53,36 @@ export const PERSONA_TILES = [
     key: "investment" as LensKey,
     role: "Chief Investment Officer · Portfolio Management",
     title: "Investment Leader",
-    hook: "Investment memos move faster than the data beneath them. The same asset appears five different ways. Confidence fades the moment the committee asks for the source.",
+    hook: "Investment memos move faster than the data beneath them. When the same asset appears five different ways, conviction weakens at the moment a decision needs to be made.",
   },
   {
     key: "cdo" as LensKey,
     role: "Chief Data Officer · Technology Leadership",
     title: "Data & Technology",
-    hook: "Audit-ready data often still breaks under agentic workloads. Every new AI query exposes the gap between compliance, context, and operational trust.",
+    hook: "Data that satisfies audit is not necessarily ready for agents. The gap is not compliance. It is governed meaning, traceable context, and trust at runtime.",
   },
   {
     key: "operations" as LensKey,
     role: "Chief Operating Officer · Finance & Accounting",
     title: "Operations Leader",
-    hook: "Your team is still reconciling what the data should already resolve. Until that changes, AI racks up compute spend to review work more often than it removes it.",
+    hook: "Too much of operations is still spent assembling and validating what the data layer should already know. Until that changes, AI reviews work more often than it removes it.",
   },
 ];
 
 export const STATS = [
   {
     num: "40%+",
-    desc: "of agentic AI projects are expected to be canceled by 2027, with data readiness emerging as the constraint, not model access",
+    desc: "of agentic AI projects are expected to be canceled by 2027. The bottleneck is readiness, not model access.",
     source: "Gartner, 2025",
   },
   {
     num: "6%",
-    desc: "of AI adopters in real estate have established governance guidelines",
+    desc: "of AI adopters in real estate have governance guidelines. Trust at scale requires the other 94% to catch up.",
     source: "BDO, 2025",
   },
   {
     num: "1 in 10",
-    desc: "companies have meaningfully scaled AI agents, the limiting factor is usually governed data, not model availability",
+    desc: "companies have scaled AI agents to production. Scale is not a model problem. It is a governed data problem.",
     source: "MIT Tech Review, 2026",
   },
 ];
@@ -82,32 +90,32 @@ export const STATS = [
 export const FAILURE_MODES = [
   {
     num: "01",
-    title: "The Ungoverned Foundation",
-    tag: "Failure Mode",
+    title: "The Governance Gap",
+    tag: "Production Gap",
     body: "Data may be connected without being governable. Lineage may exist without the provenance an agent needs to judge trust, policy, and timing. In a fiduciary-heavy industry, that gap is not academic. It directly affects whether an answer can be acted on.",
     bodyStrong: "In a fiduciary-heavy industry, that gap is not academic. It directly affects whether an answer can be acted on.",
     signal: "Your agent can produce answers, but not the evidence needed to stand behind them. That is where compliance and business confidence start to diverge.",
   },
   {
     num: "02",
-    title: "The Unresolved Entity",
-    tag: "Failure Mode",
+    title: "The Identity Gap",
+    tag: "Production Gap",
     body: "The same real-world entity often appears as multiple unreconciled records across systems. The agent is left reasoning across fragments rather than facts. In that environment, cross-system AI creates noise before it creates insight. Entity resolution is the prerequisite for trustworthy answers.",
     bodyStrong: "In that environment, cross-system AI creates noise before it creates insight. Entity resolution is the prerequisite for trustworthy answers.",
     signal: "The same question returns different answers depending on which system the agent reaches first. Trust erodes quickly from there.",
   },
   {
     num: "03",
-    title: "The Temporal Blind Spot",
-    tag: "Failure Mode",
+    title: "The Time-Context Gap",
+    tag: "Production Gap",
     body: "Without effective dating, agents reason about the present using facts that were true at another moment in time. In alternative assets, that is not a minor technical issue. It affects valuation, reporting, and decision quality directly. The asset class changes. The failure mode does not.",
     bodyStrong: "In alternative assets, that is not a minor technical issue. It affects valuation, reporting, and decision quality directly. The asset class changes. The failure mode does not.",
     signal: "Your agent outputs look right until someone checks the dates. Then they do not. And the decision has already been made.",
   },
   {
     num: "04",
-    title: "The Semantic Gap",
-    tag: "Failure Mode",
+    title: "The Meaning Gap",
+    tag: "Production Gap",
     body: "NAV can mean different things across accounting, investment, and operations. EBITDA is often calculated differently across portfolio companies. Without governed business definitions, the agent selects one interpretation and scales it across contexts, producing outputs that may be technically coherent but operationally unreliable.",
     bodyStrong: "Without governed business definitions, the agent selects one interpretation and scales it across contexts, producing outputs that may be technically coherent but operationally unreliable.",
     signal: "This is where technically correct outputs fail to earn operational trust. Once that confidence breaks, adoption stalls.",
@@ -117,15 +125,15 @@ export const FAILURE_MODES = [
 export const WHY_ALPHA = [
   {
     num: "01",
-    title: "Data Readiness as a First-Class Deliverable",
+    title: "Data Readiness as a First Deliverable",
     body: "Again and again, stalled deployments trace back to data that looked ready on the surface but remained ungoverned underneath. We treat data readiness as the first deliverable, not an assumption. The quarter clock does not start until readiness has been verified by the pod.",
     bodyStrong: "We treat data readiness as the first deliverable, not an assumption.",
   },
   {
     num: "02",
-    title: "Domain Expertise Married to Data",
-    body: "Across the market, domain expertise and data expertise too often sit in separate firms. Cherre brings together patented entity resolution, a real estate knowledge graph, provenance infrastructure, and practitioners who understand what NAV, NOI, and loss ratio mean in context, including where definitions diverge. That combination is rare, and unusually difficult to assemble in one operating model.",
-    bodyStrong: "Cherre brings together patented entity resolution, a real estate knowledge graph, provenance infrastructure, and practitioners who understand what NAV, NOI, and loss ratio mean in context, including where definitions diverge.",
+    title: "Domain Expertise Built into the Data Layer",
+    body: "Across the market, domain expertise and data expertise too often sit in separate firms. Cherre combines patented entity resolution, a real estate knowledge graph, and provenance infrastructure with practitioners who know what NAV, NOI, and loss ratio mean in each context, including where definitions diverge. That combination is built into the platform, not assembled per engagement.",
+    bodyStrong: "Cherre combines patented entity resolution, a real estate knowledge graph, and provenance infrastructure with practitioners who know what NAV, NOI, and loss ratio mean in each context, including where definitions diverge.",
   },
   {
     num: "03",
@@ -145,28 +153,28 @@ export const ARCH_TIERS = [
   {
     label: "Entry",
     name: "Assess",
-    color: "plum" as const,
+    color: "pink" as const,
     heading: "Data Readiness Assessment",
     desc: "Shows exactly where your data stands on the path from connected to trusted, and defines the shortest credible route to production.",
   },
   {
-    label: "Connect",
+    label: "Bronze",
     name: "Connect",
-    color: "aqua" as const,
+    color: "bronze" as const,
     heading: "Foundation & Ingestion",
     desc: "Your data is consolidated. Sources are visible and feeds are captured. It is now ready to be resolved, governed, and made trustworthy.",
   },
   {
-    label: "Govern",
+    label: "Silver",
     name: "Govern",
-    color: "ai-blue" as const,
+    color: "silver" as const,
     heading: "Resolution & Governance",
     desc: "Entities are resolved across systems. Facts carry time context and traceable source context. At this stage, connected data begins to become governable, comparable, and trusted.",
   },
   {
-    label: "Activate",
+    label: "Gold",
     name: "Activate",
-    color: "cherre-orange" as const,
+    color: "gold" as const,
     heading: "Agent-Ready & Certified",
     desc: "Data your agents can reason on with confidence. Every query carries citation, timing, and governance context. This is where audit-ready and agent-ready begin to converge.",
   },
@@ -182,13 +190,13 @@ export const STAGES = [
   {
     num: "STAGE 02",
     title: "Data Remediation",
-    body: "Resolves the specific failure modes from the assessment. Formal Silver certification gate, not assumed, verified. Readiness is verified, not assumed. Scope stays bounded by the assessment findings, keeping remediation targeted and controlled.",
+    body: "Resolves the specific failure modes from the assessment. Formal Silver certification gate, not assumed, verified. Scope stays bounded by the assessment findings, keeping remediation targeted and controlled.",
     leaveBehinds: "Silver layer certified · Provenance trails complete · Entity resolution validated",
   },
   {
     num: "STAGE 03",
-    title: "AI Activation in a Box",
+    title: "AI Activation",
     body: "One production agent on Gold-certified data. Two-week sprint cycles aligned to real business questions. Problems are resolved at the data layer, not repeatedly patched at the agent layer.",
-    leaveBehinds: "One agent in production · Documented failure map · Platform stays",
+    leaveBehinds: "One production agent on certified data · Documented failure map · Reusable data foundation for the next use case",
   },
 ];

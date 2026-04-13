@@ -7,23 +7,20 @@ export function ClosingSection() {
   const lens = LENS_DATA[activeLens];
 
   return (
-    <section id="contact" className="border-b border-border bg-background">
-      <div className="max-w-[1120px] mx-auto px-6 md:px-10 py-20 md:py-28 text-center">
-        <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-primary block mb-3">
-          The Starting Point
-        </span>
-        <div className="w-8 h-[2px] bg-primary mx-auto mb-6" />
-
+    <section id="contact" className="border-t border-white/[0.05]" style={{ background: "#0d0117" }}>
+      <div className="max-w-[840px] mx-auto px-6 md:px-10 py-20 md:py-28 text-center">
         <AnimatePresence mode="wait">
           <motion.h2
             key={activeLens + "-closing-h2"}
-            initial={{ opacity: 0, y: 8 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.3 }}
-            className="text-2xl md:text-[28px] font-bold text-primary leading-snug max-w-2xl mx-auto mb-5"
+            transition={{ duration: 0.4 }}
+            className="font-display text-[clamp(26px,4.2vw,52px)] font-black leading-[1.1] text-white mb-6"
           >
             {lens.ch2}
+            <br />
+            <span className="text-luna-pink">{lens.ch2Em}</span>
           </motion.h2>
         </AnimatePresence>
 
@@ -33,22 +30,23 @@ export function ClosingSection() {
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.3, delay: 0.05 }}
-            className="text-base leading-[1.8] text-foreground max-w-xl mx-auto mb-12 italic"
+            transition={{ duration: 0.4, delay: 0.06 }}
+            className="text-[17px] leading-[1.75] text-luna-muted max-w-[560px] mx-auto mb-12"
           >
             {lens.cs}
           </motion.p>
         </AnimatePresence>
 
-        <div className="flex flex-col items-center gap-3">
+        <div className="flex flex-col items-center gap-4">
           <a
             href={lens.pdf}
             download={lens.dlname}
-            className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3.5 text-sm font-medium tracking-[0.08em] uppercase rounded-sm hover:opacity-90 transition-opacity"
+            className="inline-flex items-center gap-2 border-[1.5px] border-luna-pink rounded-full px-9 py-3.5 text-white font-display text-sm font-bold tracking-wide hover:bg-luna-pink/20 transition-all"
+            style={{ background: "rgba(224,64,160,0.10)" }}
           >
-            ↓ Download One-Pager
+            &darr;&nbsp; Download Readiness Brief
           </a>
-          <span className="font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground">
+          <span className="font-mono text-[10px] tracking-[0.14em] uppercase text-luna-very-muted">
             {lens.pdflabel}
           </span>
         </div>

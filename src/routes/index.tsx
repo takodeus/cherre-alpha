@@ -9,11 +9,11 @@ import { ClosingSection } from "@/components/cherre/ClosingSection";
 import { CherreFooter } from "@/components/cherre/CherreFooter";
 import { FAILURE_MODES, WHY_ALPHA } from "@/lib/cherre-data";
 
-export const Route = createFileRoute("/")({
+export const Route = createFileRoute("/")(  {
   component: Index,
   head: () => ({
     meta: [
-      { title: "Cherre Alpha, AI Activation in a Box" },
+      { title: "Cherre Alpha — The Governed Data Layer for Enterprise AI" },
       {
         name: "description",
         content:
@@ -27,23 +27,27 @@ function Index() {
   return (
     <ThemeProvider>
       <LensProvider>
-        <div className="min-h-screen bg-background text-foreground transition-colors">
+        <div className="min-h-screen" style={{ background: "#0d0117", color: "#ffffff" }}>
           <CherreNav />
           <main>
             <HeroSection />
             <AccordionSection
               id="why-fails"
-              eyebrow="How to Escape Pilot Purgatory"
-              heading="The Four Ways AI Fails Across Alternative Assets."
-              lead="The failure modes are consistent across real estate, private equity, private credit, and infrastructure. The systems are different. The root cause is always the same."
+              eyebrow="What Keeps AI from Production"
+              heading="The Four Gaps Between Pilot and"
+              headingEm="Production."
+              lead="The patterns are consistent across real estate, private equity, private credit, and infrastructure. The systems differ. The production gaps do not."
               items={FAILURE_MODES}
+              variant="dark"
             />
             <AccordionSection
               id="why-alpha"
-              eyebrow="Why Cherre Alpha Exists"
-              heading="We Kept Seeing the Same Failure. We Decided to Fix It."
-              lead="Cherre Alpha is the formalization of what we learned deploying AI across the most complex data environments in alternative assets. The data is what makes the agent work. We own the data."
+              eyebrow="What Cherre Alpha Changes"
+              heading="How Cherre Moves AI into"
+              headingEm="Production."
+              lead="Cherre Alpha is how enterprises move from connected data to governed, agent-ready data. It formalizes the missing layer between data access and production AI: resolved entities, traceable context, and readiness you verify before the quarter starts."
               items={WHY_ALPHA}
+              variant="light"
             />
             <PathSection />
             <ClosingSection />
