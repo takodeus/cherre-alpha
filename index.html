@@ -335,26 +335,26 @@ nav {
   font-family:var(--fm); font-size:14px; padding:2px 0;
 }
 .arch-dest {
-  background:var(--void); padding:28px 28px 24px; border-radius:8px;
-  border:1px solid var(--border); border-top:3px solid var(--pink);
+  background:rgba(255,255,255,0.05); padding:32px 32px 28px; border-radius:12px;
+  border:1px solid rgba(255,255,255,0.08); border-top:3px solid var(--pink);
+  margin-top:40px;
 }
 .arch-dest-title {
-  font-family:var(--fh); font-size:20px; font-weight:800; color:var(--pink);
-  letter-spacing:0.02em; margin-bottom:14px;
+  font-family:var(--fh); font-size:13px; font-weight:800; color:var(--pink);
+  letter-spacing:2px; text-transform:uppercase; margin-bottom:16px;
 }
 .arch-dest-lead {
-  font-family:var(--fh); font-size:16px; font-weight:700; line-height:1.35;
-  color:var(--white); margin-bottom:12px;
+  font-size:16px; font-weight:300; line-height:1.75;
+  color:rgba(255,255,255,0.85); margin-bottom:16px; max-width:720px;
 }
 .arch-dest-body {
-  font-size:14px; font-weight:300; line-height:1.7; color:var(--muted);
-  margin-bottom:10px;
+  font-size:15px; font-weight:300; line-height:1.75; color:var(--muted);
+  max-width:720px;
 }
-.arch-dest-body + .arch-dest-body { margin-bottom:0; }
 .arch-dest-close {
-  font-family:var(--fh); font-size:13px; font-weight:600; line-height:1.5;
-  color:var(--white); margin-top:14px;
-  padding-top:14px; border-top:1px solid var(--border);
+  font-family:var(--fh); font-size:18px; font-weight:700; line-height:1.35;
+  color:var(--white); margin-top:20px;
+  padding-top:20px; border-top:1px solid rgba(255,255,255,0.08);
 }
 
 /* Stages */
@@ -556,20 +556,21 @@ footer p {
         <div class="arch-row a-silver"><div class="arch-badge"><span class="arch-badge-lbl">Silver</span><span class="arch-badge-name">Govern</span></div><div class="arch-body"><h4>Resolution &amp; Governance</h4><p>Entities are resolved across systems. Facts carry time context and traceable source context. At this stage, connected data begins to become governable, comparable, and trusted.</p></div></div>
         <div class="arch-arrow">&darr;</div>
         <div class="arch-row a-gold"><div class="arch-badge"><span class="arch-badge-lbl">Gold</span><span class="arch-badge-name">Activate</span></div><div class="arch-body"><h4>Agent-Ready &amp; Certified</h4><p>Data your agents can reason on with confidence. Every query carries citation, timing, and governance context. This is where audit-ready and agent-ready begin to converge.</p></div></div>
-        <div class="arch-arrow">&darr;</div>
-        <div class="arch-dest">
-          <div class="arch-dest-title">Cherre Alpha</div>
-          <div class="arch-dest-lead">The dashboard consumed the last era of enterprise data. The agent will consume the next.</div>
-          <p class="arch-dest-body">Systems of record were built to capture transactions, enforce process, and preserve the official record. Their role remains essential. They are the source of transactional truth, but not, by themselves, the source of usable meaning.</p>
-          <p class="arch-dest-body">The last era of enterprise data was built for reporting. The next will be built for reasoning.</p>
-          <div class="arch-dest-close">The question is no longer only whether data can be stored, reconciled, and surfaced for human review. It is whether that data carries enough shared meaning and traceable context to support action.</div>
-        </div>
+
       </div>
       <div class="stages r">
         <div class="stage"><div class="stage-hdr"><span class="stage-num">STAGE 01</span><h4>Data Readiness Assessment</h4></div><div class="stage-body"><p>Identifies the failure modes most likely to delay production and clarifies what it will take to resolve them.</p><div class="stage-leave"><strong>Leave-Behind</strong>Ranked failure risk map &middot; Scoped engagement plan &middot; Named pod team assigned</div></div></div>
         <div class="stage"><div class="stage-hdr"><span class="stage-num">STAGE 02</span><h4>Data Remediation</h4></div><div class="stage-body"><p>Resolves the specific failure modes from the assessment. Formal Silver certification gate, not assumed, verified. Scope stays bounded by the assessment findings, keeping remediation targeted and controlled.</p><div class="stage-leave"><strong>Leave-Behind</strong>Silver layer certified &middot; Provenance trails complete &middot; Entity resolution validated</div></div></div>
         <div class="stage"><div class="stage-hdr"><span class="stage-num">STAGE 03</span><h4>AI Activation</h4></div><div class="stage-body"><p>One production agent on Gold-certified data. Two-week sprint cycles aligned to real business questions. Problems are resolved at the data layer, not repeatedly patched at the agent layer.</p><div class="stage-leave"><strong>Leave-Behind</strong>One production agent on certified data &middot; Documented failure map &middot; Reusable data foundation for the next use case</div></div></div>
       </div>
+    </div>
+
+    <!-- Destination: full width below both columns -->
+    <div class="arch-dest">
+      <div class="arch-dest-title">Cherre Alpha</div>
+      <div class="arch-dest-lead">Systems of record were built to capture transactions, enforce process, and preserve the official record. Their role remains essential. They are the source of transactional truth, but not, by themselves, the source of usable meaning.</div>
+      <p class="arch-dest-body">The question is no longer only whether data can be stored, reconciled, and surfaced for human review. It is whether that data carries enough shared meaning, traceable context, and resolved identity to support action.</p>
+      <div class="arch-dest-close">From data built for reporting. To data built for reasoning.</div>
     </div>
   </div>
 </section>
