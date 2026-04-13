@@ -28,18 +28,18 @@ export function AccordionSection({ id, eyebrow, heading, headingEm, lead, items,
   return (
     <section
       id={id}
-      className={`relative overflow-hidden ${isDark ? "" : ""}`}
+      className="relative overflow-hidden"
       style={{ background: isDark ? "#130220" : "#f7f4fc" }}
     >
       {isDark && <div className="particle-field opacity-40" />}
-      <div className="relative z-10 max-w-[1120px] mx-auto px-6 md:px-10 py-20 md:py-24">
-        <span className={`font-display text-[11px] font-bold tracking-[2.2px] uppercase block mb-4 ${
+      <div className="relative z-10 max-w-[1120px] mx-auto px-4 sm:px-6 md:px-10 py-14 sm:py-20 md:py-24">
+        <span className={`font-display text-[10px] sm:text-[11px] font-bold tracking-[2.2px] uppercase block mb-4 ${
           isDark ? "text-luna-pink" : "text-luna-pink"
         }`}>
           {eyebrow}
         </span>
 
-        <h2 className={`font-display text-[clamp(24px,3.6vw,42px)] font-extrabold leading-[1.12] mb-5 max-w-2xl ${
+        <h2 className={`font-display text-[22px] sm:text-[clamp(24px,3.6vw,42px)] font-extrabold leading-[1.12] mb-4 sm:mb-5 max-w-2xl ${
           isDark ? "text-white" : "text-[#160228]"
         }`}>
           {heading}
@@ -51,7 +51,7 @@ export function AccordionSection({ id, eyebrow, heading, headingEm, lead, items,
           )}
         </h2>
 
-        <p className={`text-base leading-[1.75] max-w-2xl mb-10 ${
+        <p className={`text-[14px] sm:text-base leading-[1.75] max-w-2xl mb-8 sm:mb-10 ${
           isDark ? "text-luna-muted" : "text-[#7a6895]"
         }`}>
           {lead}
@@ -75,15 +75,15 @@ export function AccordionSection({ id, eyebrow, heading, headingEm, lead, items,
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : i)}
-                  className="w-full flex items-center justify-between px-5 py-4 text-left gap-4 cursor-pointer group"
+                  className="w-full flex items-center justify-between px-3 sm:px-5 py-3 sm:py-4 text-left gap-3 sm:gap-4 cursor-pointer group"
                 >
-                  <div className="flex items-center gap-4 flex-1 min-w-0">
+                  <div className="flex items-center gap-2 sm:gap-4 flex-1 min-w-0">
                     <span className={`font-mono text-[10px] tracking-[0.16em] shrink-0 ${
                       isDark ? "text-luna-pink" : "text-luna-pink"
                     }`}>
                       {item.num}
                     </span>
-                    <span className={`font-display text-base font-bold leading-tight ${
+                    <span className={`font-display text-[14px] sm:text-base font-bold leading-tight ${
                       isDark ? "text-white" : "text-[#160228]"
                     }`}>
                       {item.title}
@@ -128,14 +128,14 @@ export function AccordionSection({ id, eyebrow, heading, headingEm, lead, items,
                       transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
                       className="overflow-hidden"
                     >
-                      <div className="px-5 pb-5 pl-14">
-                        <p className={`text-[15px] leading-[1.8] mb-4 ${
+                      <div className="px-3 sm:px-5 pb-4 sm:pb-5 pl-8 sm:pl-14">
+                        <p className={`text-[13px] sm:text-[15px] leading-[1.8] mb-4 ${
                           isDark ? "text-luna-muted" : "text-[#7a6895]"
                         }`}>
                           {renderWithStrong(item.body, item.bodyStrong, isDark)}
                         </p>
                         {item.signal && (
-                          <div className={`border-l-2 border-luna-pink pl-4 py-3 rounded-r-lg ${
+                          <div className={`border-l-2 border-luna-pink pl-3 sm:pl-4 py-3 rounded-r-lg ${
                             isDark ? "bg-white/[0.03]" : "bg-[#f7f4fc]"
                           }`}>
                             <span className={`font-display text-[9px] font-bold tracking-[1.8px] uppercase block mb-1 ${
@@ -143,7 +143,7 @@ export function AccordionSection({ id, eyebrow, heading, headingEm, lead, items,
                             }`}>
                               How This Shows Up
                             </span>
-                            <p className={`text-sm leading-relaxed ${
+                            <p className={`text-[13px] sm:text-sm leading-relaxed ${
                               isDark ? "text-luna-muted" : "text-[#7a6895]"
                             }`}>
                               {item.signal}
