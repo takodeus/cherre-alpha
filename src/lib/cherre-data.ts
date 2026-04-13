@@ -12,7 +12,7 @@ export interface LensData {
 
 export const LENS_DATA: Record<string, LensData> = {
   investment: {
-    pdf: "slick-investment.pdf",
+    pdf: "/Cherre AI Activation Investment.pdf",
     pdflabel: "Investment Readiness Brief — For CIOs & Deal Teams",
     dlname: "Cherre AI Activation Investment.pdf",
     h1: "Trusted Data for Faster, Better",
@@ -23,7 +23,7 @@ export const LENS_DATA: Record<string, LensData> = {
     cs: "The firms that win will reason on better data, not simply hold more of it. In the reasoning era, data quality is investment infrastructure.",
   },
   cdo: {
-    pdf: "slick-cdo.pdf",
+    pdf: "/Cherre AI Activation Technology.pdf",
     pdflabel: "Technology Readiness Brief — For Data & Technology Leaders",
     dlname: "Cherre AI Activation Technology.pdf",
     h1: "Audit-Ready Is Not Agent-Ready. The Gap Is Where",
@@ -34,7 +34,7 @@ export const LENS_DATA: Record<string, LensData> = {
     cs: "Every AI initiative in your roadmap runs against the meaning layer your current architecture provides. The assessment shows where that ceiling is.",
   },
   operations: {
-    pdf: "slick-operations.pdf",
+    pdf: "/Cherre AI Activation Operations.pdf",
     pdflabel: "Operations Readiness Brief — For COOs & Fund Administrators",
     dlname: "Cherre AI Activation Operations.pdf",
     h1: "Your Team Should Not Have to Reconcile What the Data Layer",
